@@ -125,8 +125,9 @@ function handleScholarshipSubmit(e) {
 }
 
 async function submitToBackend(submissionData) {
+    const backendUrl = typeof API_BASE_URL !== 'undefined' ? API_BASE_URL : 'http://localhost:5000/api';
     try {
-        const response = await fetch('http://localhost:5000/api/applications', {
+        const response = await fetch(`${backendUrl}/applications`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

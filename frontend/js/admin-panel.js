@@ -19,8 +19,8 @@ let currentEditingScholarshipId = null;
 let currentEditingBursaryId = null;
 let currentDeletingApplicationId = null;
 
-// API Base URL - Update this to match your backend
-const API_BASE = 'http://localhost:5000/api';
+// API Base URL - set dynamically via config.js
+const API_BASE = typeof API_BASE_URL !== 'undefined' ? API_BASE_URL : 'http://localhost:5000/api';
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {

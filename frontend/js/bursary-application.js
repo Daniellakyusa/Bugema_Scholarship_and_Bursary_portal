@@ -384,6 +384,7 @@ function generateApplicationId(prefix) {
 
 // Enhanced backend submission with retry logic
 async function submitToBackend(submissionData) {
+    const backendUrl = typeof API_BASE_URL !== 'undefined' ? API_BASE_URL : 'http://localhost:5000/api';
     const maxRetries = 3;
     let lastError;
     
@@ -391,7 +392,7 @@ async function submitToBackend(submissionData) {
         try {
             console.log(`🔄 Backend submission attempt ${attempt}/${maxRetries}`);
             
-            const response = await fetch('http://localhost:5000/api/applications', {
+            const response = await fetch(`${backendUrl}/applications`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
