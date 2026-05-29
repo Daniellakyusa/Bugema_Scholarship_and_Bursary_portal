@@ -1,0 +1,33 @@
+[
+  {
+    "admin_id": "admin-001",
+    "username": "admin",
+    "email": "admin@bugemauniv.ac.ug",
+    "full_name": "System Administrator",
+    "role": "main_admin",
+    "password_hash": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+    "is_active": true,
+    "permissions": [
+      "view_applications",
+      "approve_applications",
+      "reject_applications",
+      "edit_applications",
+      "view_students",
+      "edit_students",
+      "view_organizations",
+      "manage_organizations",
+      "view_feedback",
+      "respond_feedback",
+      "manage_admins",
+      "view_analytics",
+      "system_settings",
+      "export_data"
+    ],
+    "last_login": null,
+    "login_count": 0,
+    "applications_reviewed": 0,
+    "feedbacks_responded": 0,
+    "created_at": "2024-05-05T10:00:00",
+    "updated_at": "2024-05-05T10:00:00"
+  }
+]

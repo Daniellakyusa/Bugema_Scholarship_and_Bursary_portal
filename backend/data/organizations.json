@@ -1,0 +1,91 @@
+[
+  {
+    "organization_id": "org-001",
+    "name": "PEAS Uganda",
+    "funding_type": "both",
+    "description": "Promoting Equality in African Schools - Supporting education across Uganda",
+    "eligibility_criteria": {
+      "min_gpa": 3.0,
+      "min_year": 1,
+      "max_household_income": 5000000,
+      "allowed_programs": ["Education", "Teaching", "Social Work"]
+    },
+    "max_funding_amount": 2000000,
+    "available_slots": 50,
+    "application_deadline": null,
+    "contact_email": "scholarships@peasuganda.org",
+    "contact_phone": "+256700000001",
+    "is_active": true,
+    "total_applications": 25,
+    "approved_applications": 15,
+    "total_funding_disbursed": 18500000,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-05-05T10:00:00"
+  },
+  {
+    "organization_id": "org-002",
+    "name": "Lora Foundation",
+    "funding_type": "scholarship",
+    "description": "Academic excellence scholarships for outstanding students",
+    "eligibility_criteria": {
+      "min_gpa": 3.5,
+      "min_year": 2,
+      "allowed_programs": ["Engineering", "Medicine", "Computer Science", "Business"]
+    },
+    "max_funding_amount": 3000000,
+    "available_slots": 25,
+    "application_deadline": null,
+    "contact_email": "info@lorafoundation.org",
+    "contact_phone": "+256700000002",
+    "is_active": true,
+    "total_applications": 18,
+    "approved_applications": 12,
+    "total_funding_disbursed": 24000000,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-05-05T10:00:00"
+  },
+  {
+    "organization_id": "org-003",
+    "name": "Holy Cross",
+    "funding_type": "bursary",
+    "description": "Faith-based bursaries for students in need",
+    "eligibility_criteria": {
+      "min_gpa": 2.5,
+      "min_year": 1,
+      "max_household_income": 3000000
+    },
+    "max_funding_amount": 1500000,
+    "available_slots": 75,
+    "application_deadline": null,
+    "contact_email": "bursaries@holycross.ug",
+    "contact_phone": "+256700000003",
+    "is_active": true,
+    "total_applications": 42,
+    "approved_applications": 28,
+    "total_funding_disbursed": 35000000,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-05-05T10:00:00"
+  },
+  {
+    "organization_id": "org-004",
+    "name": "Ssanyu Babies Home",
+    "funding_type": "both",
+    "description": "Supporting orphaned and vulnerable children through education",
+    "eligibility_criteria": {
+      "min_gpa": 2.0,
+      "min_year": 1,
+      "max_household_income": 2000000
+    },
+    "max_funding_amount": 2500000,
+    "available_slots": 40,
+    "application_deadline": null,
+    "contact_email": "education@ssanyubabies.org",
+    "contact_phone": "+256700000004",
+    "is_active": true,
+    "total_applications": 35,
+    "approved_applications": 22,
+    "total_funding_disbursed": 28500000,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-05-05T10:00:00"
+  }
+]

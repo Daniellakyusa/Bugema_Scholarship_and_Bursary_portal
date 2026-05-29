@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Application Form - Bugema University</title>
+    <link rel="icon" href="../images/Bugema University logo.png" type="image/png">
+    <style>
+        /* Minimal Form Styles */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            font-size: 18px;
+        }
+        
+        .minimal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .logo-section {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo-section img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            border: 3px solid white;
+        }
+        
+        .logo-section h1 {
+            color: white;
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .logo-section p {
+            color: #FFDE59;
+            margin: 10px 0 0 0;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        
+        .form-section {
+            padding: 40px;
+        }
+        
+        .form-title {
+            text-align: center;
+            color: #1e3a5f;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        
+        .form-description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        /* Override existing form styles for minimal layout */
+        .application-form {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        
+        .form-row {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            color: #1e3a5f;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c5282;
+            box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
+        }
+        
+        .form-section-header {
+            background: linear-gradient(135deg, #2c5282 0%, #1e3a5f 100%);
+            color: white;
+            padding: 15px 20px;
+            margin: 30px 0 20px 0;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+        
+        .form-actions {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 0 0 20px 20px;
+            text-align: center;
+            border-top: 2px solid #e9ecef;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2c5282 0%, #1e3a5f 100%);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 82, 130, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 82, 130, 0.4);
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+        }
+        
+        .progress-indicator {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
+        /* File Input Styles */
+        .file-input-wrapper {
+            position: relative;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            flex: 1;
+            padding: 15px 18px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-browse {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-browse:hover {
+            background: #f8f9fa;
+            border-color: #2c5282;
+        }
+
+        /* Radio Group Styles */
+        .radio-group {
+            margin-top: 8px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-weight: 400;
+            cursor: pointer;
+            line-height: 1.5;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .radio-group input[type="radio"] {
+            width: auto;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+
+        /* Phone Input Styles */
+        .phone-input {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .country-code {
+            width: 100px !important;
+            padding: 15px 12px !important;
+            border: 2px solid #e9ecef !important;
+            border-radius: 8px !important;
+            font-size: 18px !important;
+        }
+
+        .phone-input input {
+            flex: 1;
+        }
+
+        /* Checkbox Group Styles */
+        .checkbox-group {
+            margin-top: 8px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-weight: 400;
+            cursor: pointer;
+            line-height: 1.5;
+            font-size: 1.1rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .minimal-container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .logo-section {
+                padding: 30px 20px;
+            }
+            
+            .logo-section h1 {
+                font-size: 1.6rem;
+            }
+            
+            .form-section {
+                padding: 30px 20px;
+            }
+            
+            .form-row {
+                padding: 20px;
+            }
+            
+            .form-actions {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="minimal-container">
+                
+        <!-- Form Container -->
+        <div class="form-section">
+            <form id="scholarshipForm" class="application-form">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <img src="../images/BU logo.jpg" alt="Bugema University Logo" style="width: 100px; height: 100px; border-radius: 50%; background: white; padding: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.2); border: 3px solid #2c5282;">
+                </div>
+                <h2 class="form-title">Scholarship Application Form</h2>
+                <p class="form-description">Please complete all required fields to apply for scholarship opportunities at Bugema University.</p>
+                
+                <!-- Personal Information Section -->
+                <div class="form-section-header">
+                    <h3>Personal Information</h3>
+                </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <div class="phone-input">
+                        <input type="text" class="country-code" placeholder="+256" value="+256">
+                        <input type="tel" id="phone" name="phone" placeholder="700000000" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="studentId">Student ID Number *</label>
+                    <input type="text" id="studentId" name="studentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="program">Program of Study *</label>
+                    <select id="program" name="program" required>
+                        <option value="">Select Program</option>
+                        <option value="Bachelor of Science in Computer Science">Bachelor of Science in Computer Science</option>
+                        <option value="Bachelor of Arts in Education">Bachelor of Arts in Education</option>
+                        <option value="Bachelor of Business Administration">Bachelor of Business Administration</option>
+                        <option value="Bachelor of Science in Nursing">Bachelor of Science in Nursing</option>
+                        <option value="Bachelor of Arts in Theology">Bachelor of Arts in Theology</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Academic Information Section -->
+            <div class="form-section-header">
+                <h3>Academic Information</h3>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="year">Current Year of Study *</label>
+                    <select id="year" name="year" required>
+                        <option value="">Select Year</option>
+                        <option value="1">Year 1</option>
+                        <option value="2">Year 2</option>
+                        <option value="3">Year 3</option>
+                        <option value="4">Year 4</option>
+                        <option value="5">Year 5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gpa">Current GPA *</label>
+                    <input type="number" id="gpa" name="gpa" step="0.01" min="0" max="4.0" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Annual Household Income *</label>
+                    <input type="number" id="income" name="income" placeholder="Enter income in UGX" required>
+                </div>
+                <div class="form-group">
+                    <label>Scholarship Sponsor *</label>
+                    <select id="sponsor" name="sponsor" required>
+                        <option value="">Choose a sponsor</option>
+                        <option value="peas-uganda">PEAS Uganda</option>
+                        <option value="lora-foundation">Lora Foundation</option>
+                        <option value="ssanyu-babies-home">Ssanyu Babies Home</option>
+                        <option value="bugema-university">Bugema University Internal</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label for="reason">Reason for Scholarship Application *</label>
+                    <textarea id="reason" name="reason" rows="6" placeholder="Please explain why you need this scholarship and how it will help your studies..." required></textarea>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Scholarship Type *</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="scholarshipType" value="academic" required>
+                            Academic Excellence
+                        </label>
+                        <label>
+                            <input type="radio" name="scholarshipType" value="need" required>
+                            Need-Based
+                        </label>
+                        <label>
+                            <input type="radio" name="scholarshipType" value="sports" required>
+                            Sports
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="essay">Personal Statement *</label>
+                    <textarea id="essay" name="essay" rows="4" placeholder="Please describe why you deserve this scholarship..." required></textarea>
+                </div>
+            </div>
+            
+            <!-- Document Upload Section -->
+            <div class="form-section-header">
+                <h3>Required Documents</h3>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="transcript">Academic Transcript *</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="transcript" name="transcript" accept=".pdf,.doc,.docx" required>
+                        <button type="button" class="btn-browse">Browse</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="recommendation">Recommendation Letter *</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="recommendation" name="recommendation" accept=".pdf,.doc,.docx" required>
+                        <button type="button" class="btn-browse">Browse</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="idCopy">ID Document *</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="idCopy" name="idCopy" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <button type="button" class="btn-browse">Browse</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="proof">Proof of Admission *</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="proof" name="proof" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <button type="button" class="btn-browse">Browse</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Declaration Section -->
+            <div class="form-section-header">
+                <h3>Declaration</h3>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="declaration" name="declaration" required>
+                            I certify that all information provided is true and accurate. I understand that providing false information may result in disqualification.
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="consent" name="consent" required>
+                            I consent to Bugema University processing my personal information for scholarship evaluation purposes.
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Submit Section -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="../js/scholarship-application.js"></script>
+    
+    <!-- Include comprehensive footer -->
+    <link rel="stylesheet" href="../css/footer.css">
+    <div id="footer-placeholder"></div>
+    
+    <script>
+        // Load footer component
+        fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.log('Footer not loaded:', error));
+    </script>
+</body>
+</html>

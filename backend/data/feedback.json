@@ -1,0 +1,53 @@
+[
+  {
+    "feedback_id": "fb-001",
+    "student_id": "std-002",
+    "application_id": "app-002",
+    "feedback_type": "application_process",
+    "rating": 5,
+    "title": "Excellent application process",
+    "message": "The application process was very smooth and user-friendly. I received clear instructions and the staff was very helpful throughout.",
+    "suggestions": "Keep up the good work! Maybe add more guidance on document requirements.",
+    "is_anonymous": false,
+    "admin_response": "Thank you for your positive feedback! We're glad you had a good experience.",
+    "responded_by": "admin-001",
+    "response_date": "2024-03-26T14:30:00",
+    "is_resolved": true,
+    "created_at": "2024-03-25T16:45:00",
+    "updated_at": "2024-03-26T14:30:00"
+  },
+  {
+    "feedback_id": "fb-002",
+    "student_id": "anonymous",
+    "application_id": "app-001",
+    "feedback_type": "system_usability",
+    "rating": 4,
+    "title": "Good system but needs mobile optimization",
+    "message": "The system works well on desktop but is difficult to use on mobile devices. Please consider making it more mobile-friendly.",
+    "suggestions": "Improve mobile responsiveness and add a mobile app if possible.",
+    "is_anonymous": true,
+    "admin_response": "",
+    "responded_by": null,
+    "response_date": null,
+    "is_resolved": false,
+    "created_at": "2024-04-16T12:20:00",
+    "updated_at": "2024-04-16T12:20:00"
+  },
+  {
+    "feedback_id": "fb-003",
+    "student_id": "std-003",
+    "application_id": "app-003",
+    "feedback_type": "general",
+    "rating": 5,
+    "title": "Very satisfied with the service",
+    "message": "I'm very happy with how my application was handled. The review process was fair and transparent, and I received timely updates.",
+    "suggestions": "Continue the excellent work. Maybe send email notifications for status updates.",
+    "is_anonymous": false,
+    "admin_response": "We're delighted to hear about your positive experience! We'll consider adding email notifications.",
+    "responded_by": "admin-001",
+    "response_date": "2024-04-06T11:15:00",
+    "is_resolved": true,
+    "created_at": "2024-04-05T18:30:00",
+    "updated_at": "2024-04-06T11:15:00"
+  }
+]

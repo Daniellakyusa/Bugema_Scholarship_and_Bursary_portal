@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Bugema University</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/Bugema University logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../images/BU%20logo.jpg" alt="BUGEMA UNIVERSITY LOGO" class="logo">
+            </div>
+            <div>
+                <h1 class="portal-title">Feedback Form</h1>
+                <a href="index.html" class="dropdown-item">Back to Portal</a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="form-container">
+        <div class="form-header">
+            <h2>Share Your Feedback</h2>
+            <p>Your feedback helps us improve our services and support systems.</p>
+        </div>
+        
+        <form id="feedbackForm" class="feedback-form">
+            <!-- Personal Information -->
+            <div class="form-section">
+                <h3>Personal Information</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="studentId">Student ID (Optional):</label>
+                        <input type="text" id="studentId" name="studentId" placeholder="Enter your student ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="program">Program:</label>
+                        <select id="program" name="program" required>
+                            <option value="">Select Program</option>
+                            <option value="bba">Bachelor of Business Administration</option>
+                            <option value="bed">Bachelor of Education</option>
+                            <option value="bth">Bachelor of Theology</option>
+                            <option value="bcs">Bachelor of Computer Science</option>
+                            <option value="bna">Bachelor of Nursing</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Star Rating Section -->
+            <div class="form-section">
+                <h3>Rate Your Experience</h3>
+                <p>Please rate your experience with our services (1-5 stars, 5 being excellent):</p>
+                
+                <div class="ratings-grid">
+                    <div class="rating-item">
+                        <label>Registration Process:</label>
+                        <div class="star-rating" data-category="registration">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-item">
+                        <label>Portal Usability:</label>
+                        <div class="star-rating" data-category="usability">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-item">
+                        <label>Support Services:</label>
+                        <div class="star-rating" data-category="support">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-item">
+                        <label>Overall Experience:</label>
+                        <div class="star-rating" data-category="overall">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feedback Details -->
+            <div class="form-section">
+                <h3>Detailed Feedback</h3>
+                <div class="form-group full-width">
+                    <label for="feedbackType">Feedback Type:</label>
+                    <select id="feedbackType" name="feedbackType" required>
+                        <option value="">Select Type</option>
+                        <option value="compliment">Compliment</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="complaint">Complaint</option>
+                        <option value="technical">Technical Issue</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments" rows="5" placeholder="Share your detailed feedback here..." maxlength="500"></textarea>
+                    <small class="char-counter">0 / 500 characters</small>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="improvements">Suggestions for Improvement:</label>
+                    <textarea id="improvements" name="improvements" rows="4" placeholder="How can we improve our services?" maxlength="300"></textarea>
+                    <small class="char-counter">0 / 300 characters</small>
+                </div>
+            </div>
+            
+            <!-- Submit Section -->
+            <div class="form-actions centered">
+                <button type="button" class="btn-secondary" onclick="window.location.href='index.html'">Cancel</button>
+                <button type="submit" class="btn-primary">Submit Feedback</button>
+            </div>
+        </form>
+    </main>
+    
+    <!-- Include comprehensive footer -->
+    <link rel="stylesheet" href="../css/footer.css">
+    <div id="footer-placeholder"></div>
+    
+    <script src="../js/feedback.js"></script>
+    <script>
+        // Load footer component
+        fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.log('Footer not loaded:', error));
+    </script>
+</body>
+</html>

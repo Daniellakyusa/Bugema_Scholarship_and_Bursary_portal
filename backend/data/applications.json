@@ -1,0 +1,190 @@
+[
+  {
+    "application_id": "app-001",
+    "student_id": "std-001",
+    "category": "scholarship",
+    "application_type": "academic",
+    "organization_id": "org-002",
+    "status": "pending",
+    "submission_date": "2024-04-15T09:30:00",
+    "amount_requested": 2500000,
+    "personal_statement": "I am writing to apply for this scholarship as I have maintained excellent academic performance with a GPA of 3.8. Coming from a humble background, this scholarship would enable me to focus on my Computer Science studies without financial stress.",
+    "documents": [
+      "transcript.pdf",
+      "recommendation.pdf",
+      "id_copy.pdf"
+    ],
+    "household_income": 3500000,
+    "task_completion_status": {
+      "sports_participation": true,
+      "community_service": true,
+      "work_program": false
+    },
+    "reviewed_by": null,
+    "review_date": null,
+    "review_comments": "",
+    "approval_amount": 0,
+    "created_at": "2024-04-15T09:30:00",
+    "updated_at": "2024-04-15T09:30:00"
+  },
+  {
+    "application_id": "app-002",
+    "student_id": "std-002",
+    "category": "bursary",
+    "application_type": "need_based",
+    "organization_id": "org-003",
+    "status": "approved",
+    "submission_date": "2024-03-20T14:15:00",
+    "amount_requested": 1200000,
+    "personal_statement": "I am applying for this bursary because my family is facing financial difficulties. My father lost his job recently, and we are struggling to pay for my education. This bursary would be a great help.",
+    "documents": [
+      "transcript.pdf",
+      "recommendation.pdf",
+      "id_copy.pdf",
+      "financial_statement.pdf"
+    ],
+    "household_income": 1800000,
+    "task_completion_status": {
+      "sports_participation": false,
+      "community_service": true,
+      "work_program": true
+    },
+    "reviewed_by": "admin-001",
+    "review_date": "2024-03-25T10:30:00",
+    "review_comments": "Application meets all criteria. Student demonstrates genuine financial need and good academic standing.",
+    "approval_amount": 1200000,
+    "created_at": "2024-03-20T14:15:00",
+    "updated_at": "2024-03-25T10:30:00"
+  },
+  {
+    "application_id": "app-003",
+    "student_id": "std-003",
+    "category": "scholarship",
+    "application_type": "academic",
+    "organization_id": "org-002",
+    "status": "approved",
+    "submission_date": "2024-04-01T11:45:00",
+    "amount_requested": 3000000,
+    "personal_statement": "As a final year Engineering student with a GPA of 3.9, I believe I deserve this scholarship based on my academic excellence. I have consistently been among the top performers in my class.",
+    "documents": [
+      "transcript.pdf",
+      "recommendation.pdf",
+      "id_copy.pdf",
+      "project_portfolio.pdf"
+    ],
+    "household_income": 4200000,
+    "task_completion_status": {
+      "sports_participation": true,
+      "community_service": true,
+      "work_program": true
+    },
+    "reviewed_by": "admin-001",
+    "review_date": "2024-04-05T16:20:00",
+    "review_comments": "Excellent academic performance and well-rounded student. Approved for full amount.",
+    "approval_amount": 3000000,
+    "created_at": "2024-04-01T11:45:00",
+    "updated_at": "2024-04-05T16:20:00"
+  },
+  {
+    "application_id": "app-004",
+    "student_id": "std-004",
+    "category": "bursary",
+    "application_type": "need_based",
+    "organization_id": "org-001",
+    "status": "pending",
+    "submission_date": "2024-04-20T13:10:00",
+    "amount_requested": 1500000,
+    "personal_statement": "I am a first-year Education student seeking financial assistance to continue my studies. My family depends on subsistence farming, and the income is not sufficient to cover my education expenses.",
+    "documents": [
+      "transcript.pdf",
+      "recommendation.pdf",
+      "id_copy.pdf"
+    ],
+    "household_income": 2100000,
+    "task_completion_status": {
+      "sports_participation": false,
+      "community_service": true,
+      "work_program": false
+    },
+    "reviewed_by": null,
+    "review_date": null,
+    "review_comments": "",
+    "approval_amount": 0,
+    "created_at": "2024-04-20T13:10:00",
+    "updated_at": "2024-04-20T13:10:00"
+  },
+  {
+    "application_id": "app-005",
+    "student_id": "std-005",
+    "category": "scholarship",
+    "application_type": "academic",
+    "organization_id": "org-002",
+    "status": "rejected",
+    "submission_date": "2024-03-10T10:20:00",
+    "amount_requested": 2800000,
+    "personal_statement": "I am applying for this scholarship to support my Medicine studies. I have good grades and am committed to becoming a doctor to serve my community.",
+    "documents": [
+      "transcript.pdf",
+      "recommendation.pdf"
+    ],
+    "household_income": 6500000,
+    "task_completion_status": {
+      "sports_participation": false,
+      "community_service": false,
+      "work_program": false
+    },
+    "reviewed_by": "admin-001",
+    "review_date": "2024-03-15T09:45:00",
+    "review_comments": "Application does not meet minimum requirements. Missing required documents and insufficient extracurricular participation.",
+    "approval_amount": 0,
+    "created_at": "2024-03-10T10:20:00",
+    "updated_at": "2024-03-15T09:45:00"
+  },
+  {
+    "application_id": "572d5ea6-3321-49dd-bd34-7a311afa1664",
+    "student_id": "STU123",
+    "category": "bursary",
+    "application_type": "need_based",
+    "organization_id": "ORG001",
+    "status": "pending",
+    "submission_date": "2026-05-06T13:53:44.525582",
+    "amount_requested": 0.0,
+    "personal_statement": "Test application for bursary assistance",
+    "documents": [
+      "test.pdf"
+    ],
+    "household_income": 500000.0,
+    "task_completion_status": {},
+    "reviewed_by": null,
+    "review_date": null,
+    "review_comments": "",
+    "approval_amount": 0.0,
+    "created_at": "2026-05-06T13:53:44.525582",
+    "updated_at": "2026-05-06T13:53:44.525582"
+  },
+  {
+    "application_id": "390efa92-3485-4263-bef3-c6054c7399db",
+    "student_id": "12345670018",
+    "category": "bursary",
+    "application_type": "need_based",
+    "organization_id": "ORG001",
+    "status": "pending",
+    "submission_date": "2026-05-06T15:03:39.419965",
+    "amount_requested": 0.0,
+    "personal_statement": "cfghghkjhngbfvdcdvfbgh hgfvcfnj,kjumtynrtvfbgnfhmgj,kli.ouilkujh5t4rfgthrhmjhngbfdfderrthrgnbfrhryjhngeghyrhnggehryhngeghtyrhngehyhggyturgjujhngr657kiyumtytrgefwwdrgthytuyrhtegrwfeefwrgethrytuyutyrhtgrr3rhyukiyutyrhtegrw2fefergethrytumutyrhtegrwefwewrethyjuthgfe324r536y4u7568ikiutrtrgfet35y46u576kutyrtgrt5y46576kiyjmhngbtgr5j6kij",
+    "documents": [
+      "Doct.docx",
+      "Doct.docx",
+      "Bursaries.jpg",
+      "6fabe0eb1889d81f237ec0a261d99d5f.jpg"
+    ],
+    "household_income": 21.0,
+    "task_completion_status": {},
+    "reviewed_by": null,
+    "review_date": null,
+    "review_comments": "",
+    "approval_amount": 0.0,
+    "created_at": "2026-05-06T15:03:39.419965",
+    "updated_at": "2026-05-06T15:03:39.419965"
+  }
+]

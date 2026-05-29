@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bursary Application - Bugema University</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/Bugema University logo.png" type="image/png">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 3px solid white;
+        }
+        
+        .form-title {
+            text-align: center;
+            color: #2c5282;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c5282;
+            box-shadow: 0 0 3px rgba(44, 82, 130, 0.1);
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2c5282, #3b7ba3);
+            color: white;
+            box-shadow: 0 4px 15px rgba(44, 82, 130, 0.2);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1e3a5f, #2c5282);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 82, 130, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .form-group label,
+            .form-group input,
+            .form-group textarea {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Focus styles for accessibility */
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid #2c5282;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="minimal-container">
+            
+        
+    <main class="main-content">
+        <div class="form-container">
+            <div class="logo-container">
+                <img src="../images/BU logo.jpg" alt="Bugema University Logo" class="logo">
+            </div>
+            <h2 class="form-title">Bursary Application Form</h2>
+            <p class="form-description">Please complete all required fields to apply for bursary assistance at Bugema University.</p>
+            
+            <form id="bursaryForm" class="application-form">
+                <!-- Personal Information Section -->
+                <div class="form-section-header">
+                    <h3>Personal Information</h3>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <div class="phone-input">
+                            <input type="text" class="country-code" placeholder="+256" value="+256">
+                            <input type="tel" id="phone" name="phone" placeholder="700000000" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="studentId">Student ID Number *</label>
+                        <input type="text" id="studentId" name="studentId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="program">Program of Study *</label>
+                        <input type="text" id="program" name="program" required>
+                    </div>
+                </div>
+                
+                <!-- Financial Information Section -->
+                <div class="form-section-header">
+                    <h3>Financial Information</h3>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="income">Annual Household Income *</label>
+                        <input type="number" id="income" name="income" placeholder="Enter income in UGX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sponsor">Bursary Sponsor *</label>
+                        <select id="sponsor" name="sponsor" required>
+                            <option value="">Choose a sponsor</option>
+                            <option value="peas-uganda">PEAS Uganda</option>
+                            <option value="lora-foundation">Lora Foundation</option>
+                            <option value="ssanyu-babies-home">Ssanyu Babies Home</option>
+                            <option value="bugema-university">Bugema University Internal</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="reason">Reason for Bursary Application *</label>
+                        <textarea id="reason" name="reason" rows="6" placeholder="Please explain why you need this bursary and how it will help your studies..." required></textarea>
+                    </div>
+                </div>
+                
+                <!-- Document Upload Section -->
+                <div class="form-section-header">
+                    <h3>Required Documents</h3>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group file-group">
+                        <label for="transcript">Academic Transcript *</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="transcript" name="transcript" accept=".pdf,.doc,.docx" required>
+                            <button type="button" class="btn-browse">Browse</button>
+                        </div>
+                    </div>
+                    <div class="form-group file-group">
+                        <label for="recommendation">Recommendation Letter *</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="recommendation" name="recommendation" accept=".pdf,.doc,.docx" required>
+                            <button type="button" class="btn-browse">Browse</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group file-group">
+                        <label for="idCopy">ID Document *</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="idCopy" name="idCopy" accept=".pdf,.jpg,.jpeg,.png" required>
+                            <button type="button" class="btn-browse">Browse</button>
+                        </div>
+                    </div>
+                    <div class="form-group file-group">
+                        <label for="proof">Proof of Admission *</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="proof" name="proof" accept=".pdf,.jpg,.jpeg,.png" required>
+                            <button type="button" class="btn-browse">Browse</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Declaration Section -->
+                <div class="form-section-header">
+                    <h3>Declaration</h3>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" id="declaration" name="declaration" required>
+                                I certify that all information provided is true and accurate. I understand that providing false information may result in disqualification.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Submit Section -->
+                <div class="form-actions centered">
+                    <button type="button" class="btn-secondary" onclick="window.location.href='index.html'">Cancel</button>
+                    <button type="submit" class="btn-primary">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    
+    <!-- Include comprehensive footer -->
+    <link rel="stylesheet" href="../css/footer.css">
+    <div id="footer-placeholder"></div>
+    
+    <script src="../js/main.js"></script>
+    <script src="../js/bursary-application.js"></script>
+    <script>
+        // Load footer component
+        fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.log('Footer not loaded:', error));
+    </script>
+</body>
+</html>

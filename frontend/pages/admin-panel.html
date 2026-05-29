@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Scholarship & Bursary Management</title>
+    <link rel="icon" href="../images/BU logo.jpg" type="image/jpeg">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3a5f, #2c5282);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            padding: 3px;
+        }
+
+        .system-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .admin-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .admin-name {
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Dashboard Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid #2c5282;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c5282;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-change {
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+
+        .stat-change.positive {
+            color: #28a745;
+        }
+
+        .stat-change.negative {
+            color: #dc3545;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-tab.active {
+            color: #2c5282;
+            background: #f8f9fa;
+            border-bottom-color: #2c5282;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Data Table */
+        .data-table-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .table-filters {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .data-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #555;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Priority Badges */
+        .priority-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .priority-high {
+            background: #dc3545;
+            color: white;
+        }
+
+        .priority-medium {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .priority-low {
+            background: #28a745;
+            color: white;
+        }
+
+        /* Status Badges */
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-approved {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-rejected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-under-review {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #2c5282;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e3a5f;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .pagination button:hover {
+            background: #f8f9fa;
+        }
+
+        .pagination button.active {
+            background: #2c5282;
+            color: white;
+            border-color: #2c5282;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #2c5282;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .table-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .table-filters {
+                flex-wrap: wrap;
+            }
+
+            .data-table {
+                font-size: 0.9rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 10px 8px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Login Form */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e3a5f, #2c5282);
+        }
+
+        .login-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .login-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Admin Panel - DIRECTLY SHOWN -->
+    <div id="adminPanel" style="display: block;">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="../images/BU logo.jpg" alt="Logo" class="logo">
+                    <div class="system-title">Scholarship & Bursary Management</div>
+                </div>
+                <div class="admin-info">
+                    <span class="admin-name" id="adminName">Admin User</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Container -->
+        <div class="main-container">
+            <!-- Dashboard Statistics -->
+            <div class="stats-grid" id="statsGrid">
+                <!-- Stats will be loaded here -->
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showSection('applications')">Applications</button>
+                <button class="nav-tab" onclick="showSection('registrations')">Registrations</button>
+                <button class="nav-tab" onclick="showSection('scholarships')">Scholarships</button>
+                <button class="nav-tab" onclick="showSection('bursaries')">Bursaries</button>
+                <button class="nav-tab" onclick="showSection('students')">Students</button>
+                <button class="nav-tab" onclick="showSection('organizations')">Organizations</button>
+                <button class="nav-tab" onclick="showSection('feedback')">Feedback</button>
+            </div>
+
+            <!-- Applications Section -->
+            <div id="applicationsSection" class="content-section active">
+                <div class="data-table-container">
+                    <div class="table-header">
+                        <h3 class="table-title">Applications Management</h3>
+                        <div class="table-filters">
+                            <button class="btn btn-primary" onclick="openCreateApplicationModal()">+ Add Application</button>
+                            <input type="text" class="filter-select" id="searchInput" placeholder="Search applications..." onkeyup="searchApplications()">
+                            <select class="filter-select" id="statusFilter" onchange="filterApplications()">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                            <select class="filter-select" id="categoryFilter" onchange="filterApplications()">
+                                <option value="all">All Categories</option>
+                                <option value="scholarship">Scholarships</option>
+                                <option value="bursary">Bursaries</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="applicationsTable">
+                        <!-- Applications table will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registrations Section -->
+            <div id="registrationsSection" class="content-section">
+                <div class="data-table-container">
+                    <div class="table-header">
+                        <h3 class="table-title">Student Registrations</h3>
+                        <div class="table-filters">
+                            <button class="btn btn-primary" onclick="openCreateRegistrationModal()">+ Add Registration</button>
+                            <select class="filter-select" id="registrationFilter" onchange="filterRegistrations()">
+                                <option value="all">All Registrations</option>
+                                <option value="recent">Last 7 Days</option>
+                                <option value="month">Last 30 Days</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="registrationsTable">
+                        <!-- Registrations table will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scholarships Section -->
+            <div id="scholarshipsSection" class="content-section">
+                <div class="data-table-container">
+                    <div class="table-header">
+                        <h3 class="table-title">Scholarship Applications</h3>
+                        <div class="table-filters">
+                            <button class="btn btn-primary" onclick="openCreateScholarshipModal()">+ Add Scholarship</button>
+                            <select class="filter-select" id="scholarshipStatusFilter" onchange="filterScholarships()">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                            <select class="filter-select" id="scholarshipTypeFilter" onchange="filterScholarships()">
+                                <option value="all">All Types</option>
+                                <option value="academic">Academic Excellence</option>
+                                <option value="need">Need-Based</option>
+                                <option value="sports">Sports</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="scholarshipsTable">
+                        <!-- Scholarships table will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bursaries Section -->
+            <div id="bursariesSection" class="content-section">
+                <div class="data-table-container">
+                    <div class="table-header">
+                        <h3 class="table-title">Bursary Applications</h3>
+                        <div class="table-filters">
+                            <button class="btn btn-primary" onclick="openCreateBursaryModal()">+ Add Bursary</button>
+                            <select class="filter-select" id="bursaryStatusFilter" onchange="filterBursaries()">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                            <select class="filter-select" id="bursaryPriorityFilter" onchange="filterBursaries()">
+                                <option value="all">All Priorities</option>
+                                <option value="high">High Priority</option>
+                                <option value="medium">Medium Priority</option>
+                                <option value="low">Low Priority</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="bursariesTable">
+                        <!-- Bursaries table will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Students Section -->
+            <div id="studentsSection" class="content-section">
+                <div class="data-table-container">
+                    <div class="table-header">
+                        <h3 class="table-title">Students Management</h3>
+                    </div>
+                    
+                    <div id="studentsTable">
+                        <!-- Students table will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Organizations Section -->
+            <div id="organizationsSection" class="content-section">
+                <div class="data-table-container">
+                    <div class="table-header">
+                        <h3 class="table-title">Organizations Management</h3>
+                    </div>
+                    
+                    <div id="organizationsTable">
+                        <!-- Organizations table will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Section -->
+            <div id="feedbackSection" class="content-section">
+                <div class="data-table-container">
+                    <div class="table-header">
+                        <h3 class="table-title">Feedback Management</h3>
+                    </div>
+                    
+                    <div id="feedbackTable">
+                        <!-- Feedback table will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Details Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Application Details</h3>
+                <button class="close-btn" onclick="closeModal('applicationModal')">&times;</button>
+            </div>
+            <div id="applicationDetails">
+                <!-- Application details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Create/Edit Application Modal -->
+    <div id="createApplicationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="createApplicationTitle">Add New Application</h3>
+                <button class="close-btn" onclick="closeModal('createApplicationModal')">&times;</button>
+            </div>
+            <form id="createApplicationForm">
+                <div class="form-group">
+                    <label class="form-label">Student Name *</label>
+                    <input type="text" class="form-input" id="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email *</label>
+                    <input type="email" class="form-input" id="studentEmail" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone *</label>
+                    <input type="tel" class="form-input" id="studentPhone" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Program *</label>
+                    <input type="text" class="form-input" id="studentProgram" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Application Type *</label>
+                    <select class="form-select" id="applicationType" required>
+                        <option value="">Select Type</option>
+                        <option value="scholarship">Scholarship</option>
+                        <option value="bursary">Bursary</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Amount Requested *</label>
+                    <input type="number" class="form-input" id="amountRequested" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select class="form-select" id="applicationStatus">
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Personal Statement</label>
+                    <textarea class="form-textarea" id="personalStatement" rows="4" placeholder="Enter personal statement..."></textarea>
+                </div>
+                <div style="text-align: right;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createApplicationModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirm Delete</h3>
+                <button class="close-btn" onclick="closeModal('deleteModal')">&times;</button>
+            </div>
+            <p>Are you sure you want to delete this application? This action cannot be undone.</p>
+            <div style="text-align: right; margin-top: 20px;">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('deleteModal')">Cancel</button>
+                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Response Modal -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Respond to Feedback</h3>
+                <button class="close-btn" onclick="closeModal('feedbackModal')">&times;</button>
+            </div>
+            <form id="feedbackResponseForm">
+                <div class="form-group">
+                    <label class="form-label">Response</label>
+                    <textarea class="form-textarea" id="feedbackResponse" required placeholder="Enter your response..."></textarea>
+                </div>
+                <div style="text-align: right;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('feedbackModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Send Response</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/admin-panel-fixed.js"></script>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load footer component
+        fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.log('Footer not loaded:', error));
+    </script>
+</body>
+</html>

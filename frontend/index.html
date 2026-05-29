@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bugema University - Scholarship and Bursaries Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/Bugema University logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/BU logo.jpg" alt="Bugema University Logo" class="logo">
+            <div class="header-text">
+                <h1>Bugema University</h1>
+                <p class="portal-subtitle"><span class="typewriter">Scholarship and Bursaries Portal</span></p>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="navigation">
+        <button class="nav-btn">Overview</button>
+        
+        <div class="dropdown-container">
+            <button class="nav-btn dropdown-toggle">Quick links ▼</button>
+            <div class="dropdown-menu">
+                <a href="https://wa.me/256705180746" target="_blank" class="dropdown-item">WhatsApp</a>
+                <a href="pages/register.html" class="dropdown-item">Registration</a>
+                <a href="pages/scholarship-application.html" class="dropdown-item">Scholarships</a>
+                <a href="pages/bursary-application.html" class="dropdown-item">Bursaries</a>
+                <a href="https://erms.bugemauniv.ac.ug/student/login/" target="_blank" class="dropdown-item">Bugema University Portal</a>
+            </div>
+        </div>
+        
+        <button class="nav-btn">Notifications</button>
+        <button class="nav-btn">Announcements</button>
+        
+        <div class="dropdown-container">
+            <button class="nav-btn apply-btn dropdown-toggle">Apply ▼</button>
+            <div class="dropdown-menu">
+                <a href="pages/register.html" class="dropdown-item">Register</a>
+                <a href="pages/scholarship-application.html" class="dropdown-item">Apply for Scholarship</a>
+                <a href="pages/bursary-application.html" class="dropdown-item">Apply for Bursary</a>
+                <a href="pages/feedback.html" class="dropdown-item">Feedback</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="main-content">
+        <div class="description-box">
+            <!-- HD Image Slider -->
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="images/Scholarship.jpg" alt="Scholarship Opportunities">
+                        <div class="slide-content">
+                            <h3>Academic Excellence Scholarships</h3>
+                            <p>Recognizing outstanding academic achievement with comprehensive financial support</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/Bursaries.jpg" alt="Bursary Programs">
+                        <div class="slide-content">
+                            <h3>Need-Based Bursaries</h3>
+                            <p>Supporting students who demonstrate financial need and commitment to education</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/HappyScholarship.jpg" alt="Scholarship Success">
+                        <div class="slide-content">
+                            <h3>Scholarship Success Stories</h3>
+                            <p>Celebrating students achieving their dreams through scholarship support</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/ScholarshipWinners.jpg" alt="Scholarship Winners">
+                        <div class="slide-content">
+                            <h3>Scholarship Award Ceremony</h3>
+                            <p>Honoring outstanding students with prestigious scholarship awards</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/Scholarship Opportunity.jpg" alt="Scholarship Opportunities">
+                        <div class="slide-content">
+                            <h3>Global Scholarship Opportunities</h3>
+                            <p>Opening doors to international education and career advancement</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Controls -->
+                <button class="slider-btn prev-btn" onclick="changeSlide(-1)">❮</button>
+                <button class="slider-btn next-btn" onclick="changeSlide(1)">❯</button>
+                
+                <!-- Slider Indicators -->
+                <div class="slider-indicators">
+                    <span class="indicator active" onclick="goToSlide(0)"></span>
+                    <span class="indicator" onclick="goToSlide(1)"></span>
+                    <span class="indicator" onclick="goToSlide(2)"></span>
+                    <span class="indicator" onclick="goToSlide(3)"></span>
+                    <span class="indicator" onclick="goToSlide(4)"></span>
+                </div>
+            </div>
+            
+            <p>Welcome to Bugema University's Scholarship and Bursaries Portal. This platform provides students with access to various financial assistance opportunities offered by partner organizations and the university. Our mission is to make education accessible through transparent and efficient scholarship and bursary management.</p>
+        </div>
+        
+        <section class="criteria-section">
+            <h3>Eligibility</h3>
+            <div class="criteria-item">
+                <input type="checkbox" id="admitted-student" checked disabled>
+                <label for="admitted-student">Should Be an Admitted Student</label>
+            </div>
+        </section>
+        
+        <section class="description-box">
+            <h3>How to Apply</h3>
+            <p>Getting started with your scholarship or bursary application is simple. Click on the "Apply" dropdown in the navigation menu and select the appropriate application form. Ensure you have all required documents ready before starting your application.</p>
+        </section>
+        
+        <section class="description-box">
+            <h3>Contact Information</h3>
+            <p>For any inquiries regarding scholarships and bursaries, please contact us at student@bugemauniv.ac.ug or use the WhatsApp button for immediate assistance.</p>
+        </section>
+    </main>
+    
+    <!-- Include comprehensive footer -->
+    <link rel="stylesheet" href="css/footer.css">
+    <div id="footer-placeholder"></div>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // Load footer component
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.log('Footer not loaded:', error));
+    </script>
+</body>
+</html>

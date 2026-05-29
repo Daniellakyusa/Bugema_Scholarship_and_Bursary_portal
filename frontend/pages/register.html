@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../images/BU%20logo.jpg" alt="BUGEMA UNIVERSITY LOGO" class="logo">
+            </div>
+            <div>
+                <h1 class="portal-title">Registration Form</h1>
+                <a href="https://erms.bugemauniv.ac.ug/student/login/" target="_blank" class="dropdown-item">Bugema University Portal</a>
+                <a href="scholarship-application-minimal.html" class="dropdown-item">Scholarship</a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="form-container">
+        <div class="admin-login-cta">
+            <p>Are you an admin? <a href="admin-panel.html">Login to the Admin Panel</a></p>
+        </div>
+        <form id="registrationForm" class="registration-form">
+            <!-- Full Name -->
+            <div class="form-group full-width">
+                <label for="fullName">Full name:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+            </div>
+            
+            <!-- Date of Birth and Gender -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth:</label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                </div>
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" value="male"> Male</label>
+                        <label><input type="radio" name="gender" value="female"> Female</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Email and Phone -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter the Email Address" required>
+                </div>
+                <div class="form-group phone-group">
+                    <label for="phone">Phone:</label>
+                    <div class="phone-input">
+                        <select id="countryCode" name="countryCode" class="country-code">
+                            <option value="+256">+256</option>
+                            <option value="+255">+255</option>
+                            <option value="+254">+254</option>
+                        </select>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter the Contact" required>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Student ID and Current Year -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="studentId">Student ID No:</label>
+                    <input type="text" id="studentId" name="studentId" placeholder="Enter the Reg No." required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Current Year:</label>
+                    <select id="year" name="year" required>
+                        <option value="">Select Year</option>
+                        <option value="1">Year 1</option>
+                        <option value="2">Year 2</option>
+                        <option value="3">Year 3</option>
+                        <option value="4">Year 4</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Course of Study -->
+            <div class="form-group full-width">
+                <label for="course">Course of study:</label>
+                <select id="course" name="course" required>
+                    <option value="">Select Course</option>
+                    <option value="bba">Bachelor of Business Administration</option>
+                    <option value="bed">Bachelor of Education</option>
+                    <option value="bth">Bachelor of Theology</option>
+                    <option value="bcs">Bachelor of Computer Science</option>
+                    <option value="bna">Bachelor of Nursing</option>
+                </select>
+            </div>
+            
+            <!-- Current GPA -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gpa">Current GPA:</label>
+                    <select id="gpa" name="gpa" required>
+                        <option value="">Select</option>
+                        <option value="3.0">3.0</option>
+                        <option value="3.1">3.1</option>
+                        <option value="3.2">3.2</option>
+                        <option value="3.3">3.3</option>
+                        <option value="3.4">3.4</option>
+                        <option value="3.5">3.5</option>
+                        <option value="3.6">3.6</option>
+                        <option value="3.7">3.7</option>
+                        <option value="3.8">3.8</option>
+                        <option value="3.9">3.9</option>
+                        <option value="4.0">4.0</option>
+                    </select>
+                </div>
+                <div class="form-group gpa-note">
+                    <p>Min 3.0 required</p>
+                </div>
+            </div>
+            
+            <!-- Postal Address Section -->
+            <div class="form-section-header">
+                <h3>POSTAL ADDRESS</h3>
+            </div>
+            
+            <!-- Street/Village and Document Upload -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="street">Street/ village:</label>
+                    <input type="text" id="street" name="street" placeholder="Enter the Street/village" required>
+                </div>
+                <div class="form-group file-group">
+                    <label for="uploadedDocument">UPLOAD RELEVANT DOCUMENT:</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="uploadedDocument" name="document" accept=".pdf,.doc,.docx,.jpg,.png" required>
+                        <button type="button" class="btn-browse">Browse</button>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="form-actions centered">
+                <button type="submit" class="btn btn-primary">SUBMIT</button>
+            </div>
+            
+            <!-- Success/Error Message Display -->
+            <div id="messageDisplay" style="display: none; margin-top: 20px; padding: 15px; border-radius: 8px; text-align: center; font-weight: 600;"></div>
+            
+           
+        </form>
+    </main>
+    
+    <!-- Include comprehensive footer -->
+    <link rel="stylesheet" href="../css/footer.css">
+    <div id="footer-placeholder"></div>
+    
+    <script src="../js/register.js"></script>
+    <script>
+        // Load footer component
+        fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.log('Footer not loaded:', error));
+    </script>
+</body>
+</html>
